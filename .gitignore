@@ -1,0 +1,45 @@
+#ignore all
+*
+#unignore all with extensions
+!*.*
+#unignore all dirs
+!*/
+#combination above will ignore all files without extensions
+
+#ignore these dirs forever
+appD/
+appE/
+ch01/
+
+#ignore by now, unignore when reviewd, prepared and tested for publication
+ch02/
+ch03/
+ch04/
+ch05/
+ch06/
+ch07/
+ch08/
+
+#this line should be changed (more dirs should be revealed) upon the learning progress
+#curly braces don't work
+#ch{10..23}/
+ch10/
+ch11/
+ch12/
+ch13/
+ch14/
+ch15/
+ch16/
+ch17/
+ch18/
+ch19/
+ch20/
+ch21/
+ch22/
+ch23/
+
+#ignore supplied deitel files - examples of code
+fig*.c
+
+#unignore Makefiles
+!Makefile
