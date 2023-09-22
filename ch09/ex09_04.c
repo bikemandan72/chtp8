@@ -36,40 +36,40 @@ int main(void) {
 	scanf("%26[^p]s", s);
 	printf("%s\n", s);
 	//f) Print 1.234 in a 9-digit field with preceding zeros.
-    printf("%09f\n", 1.234);
-    /*
+	printf("%09f\n", 1.234);
+	/*
 	g) Read a time of the form hh:mm:ss , storing the parts of the time in the integer
 	variables hour , minute and second . Skip the colons ( : ) in the input stream. 
 	Use the assignment suppression character.
 	*/
-    int hour, minutes, seconds;
-    puts("enter time in format hh:mm:ss:");
-
-    getchar();//grab the \n character from stdin so that subsequent scanf call would work 
-    scanf("%2d%*c%2d%*c%2d", &hour, &minutes, &seconds);
-    
-    printf("entered time: %02d:%02d:%02d\n", hour, minutes, seconds);
-    /*
+	int hour, minutes, seconds;
+	puts("enter time in format hh:mm:ss:");
+	
+	getchar();//grab the \n character from stdin so that subsequent scanf call would work 
+	scanf("%2d%*c%2d%*c%2d", &hour, &minutes, &seconds);
+	
+	printf("entered time: %02d:%02d:%02d\n", hour, minutes, seconds);
+	/*
 	h) Read a string of the form "characters" from the standard input. Store the string in
 	character array s . Eliminate the quotation marks from the input stream.
 	*/
-    puts("enter string in a format \"characters\"");
-    char str[20]="";
-    
-    getchar();//grab the \n character from stdin so that subsequent scanf call would work
-    scanf("\"%19[^\"]s", str);
-    
-    printf("%s\n", str);
-    /*
+	puts("enter string in a format \"characters\"");
+	char str[20]="";
+	
+	getchar();//grab the \n character from stdin so that subsequent scanf call would work
+	scanf("\"%19[^\"]s", str);
+	
+	printf("%s\n", str);
+	/*
 	i) Read a time of the form hh:mm:ss , storing the parts of the time in the integer
 	variables hour , minute and second . Skip the colons ( : ) in the input stream.
 	Do not use the assignment suppression character.
 	*/
-    puts("enter time in format hh:mm:ss:");
-    
-    getchar();//grab the \n character from stdin so that subsequent scanf call would work
-    scanf("%2d:%2d:%2d", &hour, &minutes, &seconds);
-    
-    printf("entered time: %02d:%02d:%02d\n", hour, minutes, seconds);
+	puts("enter time in format hh:mm:ss:");
+	
+	getchar();//grab the \n character from stdin so that subsequent scanf call would work
+	scanf("%2d:%2d:%2d", &hour, &minutes, &seconds);
+	
+	printf("entered time: %02d:%02d:%02d\n", hour, minutes, seconds);
 	return 0;
 }
