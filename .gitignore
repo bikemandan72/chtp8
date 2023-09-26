@@ -39,8 +39,6 @@ ch23/
 
 #ignore supplied deitel files - examples of code
 fig*.c
-ex10_16.c
-ex10_17.c
 
 #unignore Makefiles
 !Makefile
