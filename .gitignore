@@ -23,7 +23,6 @@ ch08/
 #this line should be changed (more dirs should be revealed) upon the learning progress
 #curly braces don't work
 #ch{10..23}/
-ch11/
 ch12/
 ch13/
 ch14/
@@ -37,8 +36,12 @@ ch21/
 ch22/
 ch23/
 
-#ignore supplied deitel files - examples of code
+#ignore supplied Deitels' files - examples of code
 fig*.c
+
+#ignore generated files (started with Chapter 11)
+*.txt
+*.dat 
 
 #unignore Makefiles
 !Makefile
