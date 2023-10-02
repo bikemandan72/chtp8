@@ -61,7 +61,10 @@ int main (int argc, char *argv[])
 	}
 	printf("%-20s%-4s\n", "Data type", "Size");
 	while (!feof(tfPtr)) {
+		//read the string from file till the first digit
+		//otherwise fscanf returns when it'll meet first whitespace
 		fscanf(tfPtr, "%20[^0-9]s", type_str);
+		//that's why I split reading of one line in the file to 2 fscanf calls
 		fscanf(tfPtr, "%d", &bytes);
 		fgetc(tfPtr);
 		printf("%-20s%-4d\n", type_str, bytes);
