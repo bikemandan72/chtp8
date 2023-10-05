@@ -168,7 +168,10 @@ int inputRecord(FILE *rfPtr){
 	
 	fseek(rfPtr, (hardware_record.record_number - 1) * sizeof(struct hardware),
 		SEEK_SET);
-	fwrite(&hardware_record, sizeof(struct hardware), 1, rfPtr);
+	if (fwrite(&hardware_record, sizeof(struct hardware), 1, rfPtr) == 1) {
+		printf("Record #%u has been created successfully!", 
+			hardware_record.record_number);
+	}
 	
 	return 0;//success
 }
@@ -211,7 +214,10 @@ int updateRecord(FILE *rfPtr){
 	
 	fseek(rfPtr, (hardware_record.record_number - 1) * sizeof(struct hardware),
 		SEEK_SET);
-	fwrite(&hardware_record, sizeof(struct hardware), 1, rfPtr);
+	if (fwrite(&hardware_record, sizeof(struct hardware), 1, rfPtr) == 1) {
+		printf("Record #%u has been updated successfully!", 
+			hardware_record.record_number);
+	}
 	
 	return 0;//success
 }
