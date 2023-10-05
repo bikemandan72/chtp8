@@ -171,6 +171,10 @@ int inputRecord(FILE *rfPtr){
 	if (fwrite(&hardware_record, sizeof(struct hardware), 1, rfPtr) == 1) {
 		printf("Record #%u has been created successfully!", 
 			hardware_record.record_number);
+	} else {
+		printf("Couldn't create record #%u!", 
+			hardware_record.record_number);
+			return 1;//failure
 	}
 	
 	return 0;//success
@@ -217,6 +221,10 @@ int updateRecord(FILE *rfPtr){
 	if (fwrite(&hardware_record, sizeof(struct hardware), 1, rfPtr) == 1) {
 		printf("Record #%u has been updated successfully!", 
 			hardware_record.record_number);
+	} else {
+		printf("Couldn't update record #%u!", 
+			hardware_record.record_number);
+			return 1;//failure
 	}
 	
 	return 0;//success
@@ -249,6 +257,10 @@ int deleteRecord(FILE *rfPtr){
 	if (fwrite(&hardware_record, sizeof(struct hardware), 1, rfPtr) == 1) {
 		printf("Record #%u has been deleted successfully!", 
 			hardware_record_file.record_number);
+	} else {
+		printf("Couldn't delete record #%u!", 
+			hardware_record_file.record_number);
+			return 1;//failure
 	}
 	
 	return 0;//success
