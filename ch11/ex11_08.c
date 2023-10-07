@@ -101,6 +101,11 @@ int main (int argc, char *argv[])
 		} else {
 			printf("Unmatched transaction record for account number #%u\n",
 				trans_account_number);
+			//we copy data for account number greater than trans acct.#
+			//otherwise they'll get lost i.e.
+			//(old acct.# already scanfed > unmached trans acct.#)
+			//or duplicated in the cycle above (old acct.# < unmached trans acct.#)
+			//and here without this condition
 			if (account_number > trans_account_number) {
 				fprintf(nmfPtr, "%u %s %.2lf\n", account_number, name, balance);
 			}
