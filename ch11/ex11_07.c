@@ -47,7 +47,7 @@ int main (int argc, char *argv[])
 	}
 	for (size_t i = 0; i < MASTER_RECORDS; ++i) {
 		fprintf(mfPtr, "%u %s %.2lf\n", account_number[i], name[i], balance[i]);
-		fprintf(tfPtr, "%u %lf\n", trans_account_number[i], trans[i]);
+		fprintf(tfPtr, "%u %.2lf\n", trans_account_number[i], trans[i]);
 	}
 	
 	fclose(tfPtr);
