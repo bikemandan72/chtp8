@@ -90,14 +90,16 @@ int main (int argc, char *argv[])
 		fscanf(omfPtr, "%lf", &balance);
 		//simply copy old data
 		while (!feof(omfPtr) && (account_number < trans_account_number)) {
-			fprintf(nmfPtr, "%u %s %.2lf\n", account_number, name, balance);
+			//because name contains leading and trailing spaces
+			//we exclude delimiting spaces in format conversion string
+			fprintf(nmfPtr, "%u%s%.2lf\n", account_number, name, balance);
 			fscanf(omfPtr, "%u%15[a-z A-Z]s", &account_number, name);
 			fscanf(omfPtr, "%lf", &balance);
 		}
 		//update data
 		if (account_number == trans_account_number) {
 			balance += trans;
-			fprintf(nmfPtr, "%u %s %.2lf\n", account_number, name, balance);
+			fprintf(nmfPtr, "%u%s%.2lf\n", account_number, name, balance);
 		} else {
 			printf("Unmatched transaction record for account number #%u\n",
 				trans_account_number);
@@ -107,7 +109,7 @@ int main (int argc, char *argv[])
 			//or duplicated in the cycle above (old acct.# < unmached trans acct.#)
 			//and here without this condition
 			if (account_number > trans_account_number) {
-				fprintf(nmfPtr, "%u %s %.2lf\n", account_number, name, balance);
+				fprintf(nmfPtr, "%u%s%.2lf\n", account_number, name, balance);
 			}
 		}
 		//read next transaction
