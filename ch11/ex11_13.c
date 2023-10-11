@@ -65,12 +65,12 @@ int main (int argc, char *argv[])
 	FILE *pwPtr = NULL;
 	
 	puts("Input a seven-digit number in a format XXX-XX-XX (avoid 0s and 1s!):");
-    fgets(phone_str, STRSIZE, stdin);
-    //cut-off newline character at the end of the string
-    strtok(phone_str, "\n");
-    
-    pwPtr = fopen(FILENAME, WRITE_MODE);
-    if (pwPtr == NULL) {
+	fgets(phone_str, STRSIZE, stdin);
+	//cut-off newline character at the end of the string
+	strtok(phone_str, "\n");
+	
+	pwPtr = fopen(FILENAME, WRITE_MODE);
+	if (pwPtr == NULL) {
 		printf("Couldn't open the file %s for output!", FILENAME);
 		return EXIT_FAILURE;
 	}
