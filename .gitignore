@@ -23,7 +23,6 @@ ch08/
 #this line should be changed (more dirs should be revealed) upon the learning progress
 #curly braces don't work
 #ch{10..23}/
-ch12/
 ch13/
 ch14/
 ch15/
@@ -42,6 +41,7 @@ fig*.c
 #ignore generated files (started with Chapter 11)
 *.txt
 *.dat 
+*.o
 
 #unignore Makefiles
 !Makefile
