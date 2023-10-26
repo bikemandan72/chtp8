@@ -9,7 +9,7 @@ for solving Deitels' exercises
 #include "list.h"
 
 struct list {
-	int value;
+	Item value;
 	struct list *next;
 };
 
@@ -28,7 +28,7 @@ void freeList(List *head) {
 	*head = NULL;
 }
 
-List insertAfter(List *head, int value) {
+List insertAfter(List *head, Item value) {
 	List new = NULL;
 	new = malloc(sizeof(struct list));
 	if (new == NULL) {
@@ -54,7 +54,7 @@ List insertAfter(List *head, int value) {
 	}
 }
 
-List insertHead(List *head, int value) {
+List insertHead(List *head, Item value) {
 	List new = NULL;
 	new = malloc(sizeof(struct list));
 	if (new == NULL) {
@@ -70,7 +70,7 @@ List insertHead(List *head, int value) {
 	return *head;
 }
 
-List insertTail(List *head, int value) {
+List insertTail(List *head, Item value) {
 	List new = NULL;
 	new = malloc(sizeof(struct list));
 	if (new == NULL) {
@@ -132,7 +132,7 @@ List deleteTail(List *head) {
 	return *head;
 }
 
-List deleteFirst(List *head, int value) {
+List deleteFirst(List *head, Item value) {
 	if (*head == NULL) {
 		return *head;
 	}
@@ -156,7 +156,7 @@ List deleteFirst(List *head, int value) {
 	return *head;
 }
 //TODO
-List deleteAll(List *head, int value) {
+List deleteAll(List *head, Item value) {
 	/*
 	condition *head != NULL MUST be the first one
 	to avoid segfault while checking the 2nd condition
@@ -193,14 +193,14 @@ List getNextNode(const List *const node) {
 	return (*node)->next;
 }
 
-int getNodeValue(const List *const node) {
+Item getNodeValue(const List *const node) {
 	if (*node == NULL) {
 		return INT_MIN;
 	}
 	return (*node)->value;
 }
 
-void traverseList(const List *const head, void (*nodeFunc)(int value)) {
+void traverseList(const List *const head, void (*nodeFunc)(Item value)) {
 	List cur = *head;
 	while(cur != NULL) {
 		(*nodeFunc)(cur->value);
