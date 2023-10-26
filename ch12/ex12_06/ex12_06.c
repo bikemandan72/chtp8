@@ -9,8 +9,9 @@ to both lists as arguments and concatenates the second list to the first list.
 #include "../lib/list.h"
 
 #define SIZE 5
+#define ASCII_OFFSET 65
 
-void printNode(int);
+void printNode(Item value);
 void printList(List head);
 void concatenate(List head_1, List head_2);
 
@@ -22,9 +23,9 @@ int main (int argc, char *argv[])
 	List list_2 = NULL;
 	list_2 = initList(&list_2);
 	
-	for (size_t i = 0; i < SIZE; ++i) {
-		insertAfter(&list_1, i);
-		insertAfter(&list_2, i * 2);
+	for (size_t i = ASCII_OFFSET; i < SIZE + ASCII_OFFSET; ++i) {
+		insertAfter(&list_1, (Item)i);
+		insertAfter(&list_2, (Item)(i + 10));
 	}
 	printList(list_1);
 	printList(list_2);
@@ -45,8 +46,8 @@ void concatenate(List head_1, List head_2) {
 	}
 }
 
-void printNode(int value) {
-	printf("%d --> ", value);
+void printNode(Item value) {
+	printf("%c --> ", value);
 }
 
 void printList(List head) {
