@@ -4,6 +4,7 @@ for solving Deitels' exercises
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 #include "list.h"
 
@@ -95,8 +96,9 @@ List insertTail(List *head, int value) {
 }
 
 List deleteHead(List *head) {
-	if (*head == NULL)
+	if (*head == NULL) {
 		return *head;
+	}
 	List temp = NULL;
 	temp = *head;
 	*head = (*head)->next;
@@ -106,8 +108,9 @@ List deleteHead(List *head) {
 }
 
 List deleteTail(List *head) {
-	if (*head == NULL)
+	if (*head == NULL) {
 		return *head;
+	}
 	List cur = NULL, prev = NULL;
 	cur = *head;
 	//walk till the end of the list
@@ -130,8 +133,9 @@ List deleteTail(List *head) {
 }
 
 List deleteFirst(List *head, int value) {
-	if (*head == NULL)
+	if (*head == NULL) {
 		return *head;
+	}
 	if ((*head)->value == value) {
 		return deleteHead(head);
 	}
@@ -160,8 +164,9 @@ List deleteAll(List *head, int value) {
 	while (*head != NULL && (*head)->value == value) {
 		deleteHead(head);
 	}
-	if (*head == NULL)
+	if (*head == NULL) {
 		return *head;
+	}
 	List cur = NULL, prev = NULL;
 	cur = *head;
 	List temp = NULL;
@@ -182,10 +187,16 @@ List deleteAll(List *head, int value) {
 }
 
 List getNextNode(const List *const node) {
+	if (*node == NULL) {
+		return *node;
+	}
 	return (*node)->next;
 }
 
 int getNodeValue(const List *const node) {
+	if (*node == NULL) {
+		return INT_MIN;
+	}
 	return (*node)->value;
 }
 
@@ -203,8 +214,9 @@ int isEmptyList(const List *const head) {
 
 unsigned int getListSize(const List *const head) {
 	unsigned int list_size = 0;
-	if (*head == NULL)
+	if (*head == NULL) {
 		return list_size;
+	}
 	List cur = *head;
 	while(cur != NULL) {
 		list_size++;
