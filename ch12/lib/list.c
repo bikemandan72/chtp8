@@ -44,8 +44,12 @@ List insertAfter(List *head, Item value) {
 		cur = cur->next;
 	}
 	if (prev == NULL) {
+		free(new);
+		new = NULL;
 		return insertHead(head, value);
 	} else if (cur == NULL) {
+		free(new);
+		new = NULL;
 		return insertTail(head, value);
 	} else {
 		prev->next = new;
