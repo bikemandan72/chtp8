@@ -65,8 +65,10 @@ int main (int argc, char *argv[])
 	arrRealloc = realloc(array, sizeof(int) * arraySize / 2);
 	if (arrRealloc == NULL) {
 		puts("Unable to reallocate memory!");
+		free(array);
 		return EXIT_FAILURE;
 	}
+	array = NULL;
 	//print the array
 	//we MUST use arrRealloc
 	printArray(arrRealloc, arraySize / 2);
@@ -76,6 +78,7 @@ int main (int argc, char *argv[])
 	//there's no need to free array, because realloc free'd it upon successful call above
 	//free(array);
 	free(arrRealloc);
+	arrRealloc = NULL;
 	
 	return EXIT_SUCCESS;
 }
