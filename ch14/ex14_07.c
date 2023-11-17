@@ -15,6 +15,7 @@ int main (int argc, char *argv[])
 		puts("Usage: myreverse fromfile tofile");
 		exit(EXIT_FAILURE);
 	}
+	
 	FILE *fromFilePtr = NULL, *toFilePtr = NULL;
 	fromFilePtr = fopen(argv[1], "r");
 	if (fromFilePtr == NULL) {
@@ -26,7 +27,11 @@ int main (int argc, char *argv[])
 		printf("Unable to open the file \"%s\"\n", argv[2]);
 		exit(EXIT_FAILURE);
 	}
+	
 	reverse(fromFilePtr, toFilePtr);
+	
+	fclose(fromFilePtr);
+	fclose(toFilePtr);
 	
 	return EXIT_SUCCESS;
 }
