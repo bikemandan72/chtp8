@@ -117,6 +117,7 @@ List deleteTail(List *head) {
 	}
 	List cur = NULL, prev = NULL;
 	cur = *head;
+	prev = cur;
 	//walk till the end of the list
 	while(cur->next != NULL) {
 		prev = cur;
@@ -145,6 +146,7 @@ List deleteFirst(List *head, Item value) {
 	}
 	List cur = NULL, prev = NULL;
 	cur = *head;
+	prev = cur;
 	//walk till the end of the list or value found
 	while(cur->next != NULL && cur->value != value) {
 		prev = cur;
@@ -159,7 +161,7 @@ List deleteFirst(List *head, Item value) {
 	}
 	return *head;
 }
-//TODO
+
 List deleteAll(List *head, Item value) {
 	/*
 	condition *head != NULL MUST be the first one
@@ -173,6 +175,7 @@ List deleteAll(List *head, Item value) {
 	}
 	List cur = NULL, prev = NULL;
 	cur = *head;
+	prev = cur;
 	List temp = NULL;
 	//walk till the end of the list or value found
 	while(cur != NULL) {

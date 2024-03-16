@@ -29,8 +29,9 @@ int main (int argc, char *argv[])
 	}
 	printList(list_1);
 	printList(list_2);
-	
+
 	concatenate(list_1, list_2);
+
 	printList(list_1);
 	
 	freeList(&list_1);
