@@ -15,7 +15,6 @@ ch01/
 ch02/
 ch03/
 ch04/
-ch05/
 ch06/
 ch07/
 ch08/
@@ -33,6 +32,10 @@ ch23/
 
 #ignore supplied Deitels' files - examples of code
 fig*.c
+ex05_03.c
+ex05_14.c
+ex05_42.c
+ex05_43.c
 
 #ignore generated files (started with Chapter 11)
 *.txt
